@@ -1453,8 +1453,7 @@ class _MyAppState extends State<MyApp> {
             centerTitle: true,
           ),
 
-
-          body: Padding(
+        body: Padding(
             padding: const EdgeInsets.all(8.0),
             child: SingleChildScrollView(
               child: Wrap(
