@@ -88,6 +88,8 @@ class MyApp extends StatelessWidget {
 
 
 //-------------------------------------------------------------//
+
+
 //To create a stateful widget
 //write stful, then tab
 /*
@@ -104,9 +106,9 @@ class _MyAppState extends State<MyApp> {
     return const Placeholder();
   }
 }
+
+
 */
-
-
 //-------------------------------------------------------------//
 
 
@@ -234,6 +236,7 @@ class _MyAppState extends State<MyApp> {
 
 
       floatingActionButton: FloatingActionButton(
+
         onPressed: (){
           setState(() {
             counter++;
@@ -251,6 +254,68 @@ class _MyAppState extends State<MyApp> {
 }
 */
 //-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------//
+//Another example on stateful widgets
+//toggling the color of a button whenever pressed
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
+  bool pressed = false;   //button pressing flag
+
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.white,
+
+        body:
+        Center(
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: pressed? Colors.teal: Colors.red,
+             ),
+              onPressed: (){
+            setState(() {
+              pressed = !pressed; //toggle the button state
+            });
+          },
+              child: Text(
+            pressed? 'Green':'Red',
+            style: const TextStyle(fontSize: 50),
+          )),
+        ),
+
+
+
+      ),
+    );
+  }
+}
+
+//-------------------------------------------------------------//
+
 
 
 
@@ -1426,7 +1491,7 @@ class _MyAppState extends State<MyApp> {
 
 //-------------------------------------------------------------//
 //mini project: Products page:
-
+/*
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -1447,9 +1512,13 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
             leading: const BackButton(color: Colors.black,),
             title: const Text("Shopping app", style: TextStyle(color: Colors.black),),
+            actions: const [
+              Icon(Icons.notifications, color: Colors.deepOrange),
+              SizedBox(width: 15,)
+            ],
             centerTitle: true,
           ),
 
@@ -1459,7 +1528,6 @@ class _MyAppState extends State<MyApp> {
               child: Wrap(
                 spacing: 10,
                 runSpacing: 10,
-
             children: products.map((p) => ProductCard(product: p)).toList(),
             ),
             ),
@@ -1468,15 +1536,12 @@ class _MyAppState extends State<MyApp> {
           floatingActionButton: FloatingActionButton(onPressed: () {  },
           backgroundColor: Colors.white,
           child: const Icon(Icons.shopping_cart, color: Colors.deepOrange,),
-
            ),
           ),
     );
   }
 }
-
-
-
+*/
 //-------------------------------------------------------------//
 
 
