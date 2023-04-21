@@ -267,7 +267,7 @@ class _MyAppState extends State<MyApp> {
 //-------------------------------------------------------------//
 //Another example on stateful widgets
 //toggling the color of a button whenever pressed
-
+/*
 void main() {
   runApp(const MyApp());
 }
@@ -313,7 +313,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
+*/
 //-------------------------------------------------------------//
 
 
@@ -331,8 +331,7 @@ class _MyAppState extends State<MyApp> {
 
 
 //-------------------------------------------------------------//
-//
-//iterating over a list of date, using map
+//iterating over a list of date, using a for loop
 /*
 void main() => runApp(MyApp());
 
@@ -345,9 +344,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
 
   List <String> quotes = [
-    'تطيبُ الحياةُ لمن لا يُبالي',
-    'وانت عامل ايه دلوقت',
-    'كُلّه تمام الحمد لله'
+    "The more you teach, the better you learn. - Prof. Feynman \n",
+    "Life is tough my darling, but so are you. – Stephanie Henry\n",
+    "Be kind, for everyone you meet is fighting a hard battle. – Plato"
   ];
   @override
   Widget build(BuildContext context) {
@@ -355,17 +354,17 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          leading: const BackButton(),
-          title: const Text("this is my second app"),
-          centerTitle: true,
-        ),
+
 
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: quotes.map((quote) => Text(quote)).toList(),
-          //  quotes.map((e) => Text(e)).toList(),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:
+              [
+                for (int i = 0 ; i < quotes.length ; i++)
+                   Text(quotes[i]),
+              ]
           ),
         ),
       ),
@@ -377,6 +376,50 @@ class _MyAppState extends State<MyApp> {
 
 
 
+
+
+
+
+//-------------------------------------------------------------//
+//iterating over a list of date, using map function
+/*
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+class _MyAppState extends State<MyApp> {
+
+  List <String> quotes = [
+    "The more you teach, the better you learn. - Prof. Feynman \n",
+    "Life is tough my darling, but so are you. – Stephanie Henry\n",
+    "Be kind, for everyone you meet is fighting a hard battle. – Plato"
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.white,
+
+
+        body: Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+
+              children: quotes.map((quote) => Text(quote)).toList(),
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+//-------------------------------------------------------------//
 
 
 
@@ -392,8 +435,17 @@ class Quote{
   String quote;
   String author;
 
-  Quote({required this.quote, required this.author});
+  Quote({
+    required this.quote,
+    required this.author
+  });
 }
+
+List <Quote> quotes = [
+  Quote(quote: 'The more you teach, the better you learn.', author: "Prof. Feynman"),
+  Quote(quote: 'Life is tough my darling, but so are you.', author: "Stephanie Henry"),
+  Quote(quote: 'Be kind, for everyone you meet is fighting a hard battle.', author: "Plato"),
+] ;
 
 void main() => runApp(MyApp());
 
@@ -405,26 +457,24 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List <Quote> quotes = [
-    Quote(quote: 'محمد محمود', author: "وانت عامل ايه دلوقتي"),
-    Quote(quote: 'محمد رسلان', author: "كلّه تمام الحمد لله، وانت عامل ايه"),
-    Quote(quote: 'محمد محمود رسلان', author: "أنا كُلّه تمام الحمد لله، وانت عامل ايه؟"),
 
-  ] ;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          leading: BackButton(),
-          title: Text("Quotes app"),
-        ),
+
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: quotes.map((quote) => Text("${quote.author} - ${quote.quote}")).toList(),
+            crossAxisAlignment: CrossAxisAlignment.start,
+
+            children: quotes.map((quote) =>
+                Text("${quote.quote} - ${quote.author}\n"))
+                .toList(),
+
           ),
         ),
       ),
@@ -432,62 +482,13 @@ class _MyAppState extends State<MyApp> {
   }
 }
 */
-//-------------------------------------------------------------//
-
-
-
-
-
-
-
-
-
-
-
-//-------------------------------------------------------------//
-//custom class of quotes
-//now, let's define that class in a separate file:
 /*
-import 'quote.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  List <Quote> quotes = [
-    Quote(quote: 'محمد محمود', author: "وانت عامل ايه دلوقتي"),
-    Quote(quote: 'محمد رسلان', author: "كلّه تمام الحمد لله، وانت عامل ايه"),
-    Quote(quote: 'محمد محمود رسلان', author: "أنا كُلّه تمام الحمد لله، وانت عامل ايه؟"),
-
-  ] ;
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          leading: BackButton(),
-          title: Text("Quotes app"),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: quotes.map((quote) => Text("${quote.author} - ${quote.quote}")).toList(),
-          ),
-        ),
-      ),
-    );
-  }
-}
-*/
+Now, for a cleaner code, move the Quote class to a new dart file
+import it here in main.dart
+ */
 //-------------------------------------------------------------//
+
+
 
 
 
@@ -1543,12 +1544,4 @@ class _MyAppState extends State<MyApp> {
 }
 */
 //-------------------------------------------------------------//
-
-
-
-
-
-
-
-
 
