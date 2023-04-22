@@ -464,8 +464,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.white,
-
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -486,6 +484,319 @@ class _MyAppState extends State<MyApp> {
 Now, for a cleaner code, move the Quote class to a new dart file
 import it here in main.dart
  */
+//-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+
+
+
+//Now, let's put that text into a card
+
+
+
+//-------------------------------------------------------------////-------------------------------------------------------------//
+//--------------------- Card Widget (It looks like a container, with a few more  decoration properties) ------------//
+//-------------------------------------------------------------////-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------//
+//Card Widget (It looks like a container, with a few more decoration properties)
+/*
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors. lightBlue[900],
+        appBar: AppBar(
+            backgroundColor: Colors. lightBlue[800],
+            leading: const BackButton(),
+            title: const Text("Cards"),
+            centerTitle: true,
+        ),
+
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  const [
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Card(
+                  child: SizedBox(
+                    child: Center(
+                        child: Padding(
+                        padding: EdgeInsets.all(20.0),
+                          child: Text( "The more you teach, "
+                          "the better you learn. -Prof. Feynman",
+                          style: TextStyle(fontSize: 25),
+                      ),
+                    )),
+                  ),
+                ),
+              ),
+
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+//-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------//
+//Iterating over the list of quotes
+//and rendering them into cards
+/*
+
+class Quote{
+  String quote;
+  String author;
+
+  Quote({
+    required this.quote,
+    required this.author
+  });
+}
+
+List <Quote> quotes = [
+  Quote(quote: 'The more you teach, the better you learn.', author: "Prof. Feynman"),
+  Quote(quote: 'Life is tough my darling, but so are you.', author: "Stephanie Henry"),
+  Quote(quote: 'Be kind, for everyone you meet is fighting a hard battle.', author: "Plato"),
+] ;
+
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+         backgroundColor: Colors. lightBlue[900],
+        appBar: AppBar(
+          elevation: 0,
+            leading: const BackButton(),
+            title: const Text("Cards of quotes"),
+            centerTitle: true,
+            backgroundColor: Colors.lightBlue[800]
+        ),
+
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  [
+                for (Quote quote in quotes)
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      child: SizedBox(
+                        child: Center(
+                            child: Padding(
+                            padding: const EdgeInsets.all(20.0),
+                              child:  Text("${quote.quote} \n-${quote.author}\n",
+                                style: const TextStyle(fontSize: 25),
+                              ),
+                          )
+                        )
+                      ),
+                      ),
+                    ),
+                 ],
+              ),
+
+
+          ),
+        ),
+      );
+
+  }
+}
+*/
+//-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------//
+//A card can be the parent to almost any type of widget
+/*
+List <String> imageURLs = [
+  'assets/dash.png',
+  'assets/dash1.png',
+  'assets/dash2.png',
+] ;
+
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+         backgroundColor: Colors. lightBlue[900],
+        appBar: AppBar(
+          elevation: 0,
+            leading: const BackButton(),
+            title: const Text("Cards of quotes"),
+            centerTitle: true,
+            backgroundColor: Colors.lightBlue[800]
+        ),
+
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  [
+                for (String imageURL in imageURLs)
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Card(
+                      child: SizedBox(
+                        width: 350,
+
+                        child: Center(
+                            child: Image.asset(imageURL),
+                          )
+                        )
+                      ),
+                      ),
+                 ],
+              ),
+          ),
+        ),
+      );
+  }
+}
+*/
+//-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------//
+//Card Widget decorations
+/*
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+       // backgroundColor: Colors.white,
+        appBar: AppBar(
+          leading: const BackButton(),
+          title: const Text("Cards"),
+          centerTitle: true,
+          backgroundColor: Colors.blue
+        ),
+
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  [
+
+
+          //simple card, no borders
+          const Card(
+          child: SizedBox(
+          width: 300,
+            height: 100,
+            child: Center(child: Text('Elevated Card',
+              style: TextStyle(fontSize: 35),)),
+          ),
+          ),
+
+
+          //rounded rectangle borders
+          Card(
+            color: Colors.white54,
+            elevation: 2,
+            shadowColor: Colors.blue,
+
+            shape: RoundedRectangleBorder(
+              side: BorderSide(
+                color: Theme.of(context).colorScheme.outline,
+              ),
+
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
+            ),
+            child: const Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text("Filled card, rounded edges",
+                style: TextStyle(fontSize: 25),),
+            ),
+          ),
+
+
+          const Card(
+            color: Colors.lightBlue,
+            elevation: 0,
+            child: SizedBox(
+              width: 300,
+              height: 100,
+              child: Center(child: Text('Filled Card',
+                style: TextStyle(fontSize: 35, color: Colors.white),),),
+            ),
+          ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
 //-------------------------------------------------------------//
 
 
@@ -536,14 +847,15 @@ class MyApp extends StatelessWidget {
           ),
 
           body:
-        const Center(
-        child: CircleAvatar(
-         radius: 100,
-          backgroundColor: Colors.orange,
-          foregroundColor: Colors.white,
-          child: Text("Hello", style: TextStyle(fontSize: 40),),
-        ),
-         ),
+            const Center(
+            child: CircleAvatar(
+             radius: 100,
+              backgroundColor: Colors.orange,
+              foregroundColor: Colors.white,
+              child: Text("Hello", style:
+              TextStyle(fontSize: 40),),
+            ),
+          ),
       ),
     );
   }
@@ -959,98 +1271,6 @@ class MyApp extends StatelessWidget {
  */
 //-------------------------------------------------------------//
 
-
-
-
-
-
-
-
-
-//-------------------------------------------------------------////-------------------------------------------------------------//
-//--------------------- Card Widget (It looks like a container, with a few more  decoration properties) ------------//
-//-------------------------------------------------------------////-------------------------------------------------------------//
-
-
-
-
-
-
-
-//-------------------------------------------------------------//
-//Card Widget (It looks like a container, with a few more decoration properties)
-/*
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-       // backgroundColor: Colors.white,
-        appBar: AppBar(
-          leading: const BackButton(),
-          title: const Text("Cards"),
-          centerTitle: true,
-          backgroundColor: Colors.blue
-        ),
-
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
-
-
-          const Card(
-          child: SizedBox(
-          width: 300,
-            height: 100,
-            child: Center(child: Text('Elevated Card', style: TextStyle(fontSize: 35),)),
-          ),
-          ),
-
-
-          //with borders
-          Card(
-            color: Colors.white54,
-            elevation: 2,
-            shadowColor: Colors.blue,
-
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                color: Theme.of(context).colorScheme.outline,
-              ),
-
-              borderRadius: const BorderRadius.all(Radius.circular(12)),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text("Filled card, rounded edges", style: TextStyle(fontSize: 25),),
-            ),
-          ),
-
-
-          const Card(
-            color: Colors.white,
-            elevation: 0,
-            child: SizedBox(
-              width: 300,
-              height: 100,
-              child: Center(child: Text('Filled Card', style: TextStyle(fontSize: 35),),),
-            ),
-          ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-*/
-//-------------------------------------------------------------//
 
 
 
