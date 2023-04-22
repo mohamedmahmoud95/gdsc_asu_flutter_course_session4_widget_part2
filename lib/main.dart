@@ -799,7 +799,7 @@ class MyApp extends StatelessWidget {
 
 //-------------------------------------------------------------//
 //circular avatar:
-
+/*
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -820,12 +820,12 @@ class MyApp extends StatelessWidget {
           ),
 
           body:
-            const Center(
+             Center(
             child: CircleAvatar(
              radius: 100,
-              backgroundColor: Colors.orange,
+              backgroundColor: Colors.lightBlue[800],
               foregroundColor: Colors.white,
-              child: Text("Hello", style:
+              child: const Text("Hello", style:
               TextStyle(fontSize: 40),),
             ),
           ),
@@ -834,7 +834,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
+*/
 //-------------------------------------------------------------//
 
 
@@ -855,7 +855,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.lightBlue[700],
         appBar: AppBar(
+       //   backgroundColor: Colors.lightBlue[800],
+          elevation: 0,
           leading: const BackButton(),
           title: const Text("Circular avatar"),
           centerTitle: true,
@@ -863,9 +866,9 @@ class MyApp extends StatelessWidget {
 
         body:  const Center(
           child: CircleAvatar(
-            maxRadius: 200,
-          foregroundImage: AssetImage("assets/dash1.png"),
-            backgroundColor: Colors.transparent,
+            maxRadius: 150,
+            foregroundImage: AssetImage("assets/dash1.png"),
+            backgroundColor: Colors.white,
           ),
         ),
       ),
@@ -886,7 +889,7 @@ class MyApp extends StatelessWidget {
 
 //-------------------------------------------------------------//
 //circular avatar with foreground and background image:
-/*
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -905,9 +908,10 @@ class MyApp extends StatelessWidget {
 
         body:  const Center(
           child: CircleAvatar(
-            maxRadius: 200,
+            maxRadius: 150,
             foregroundImage: AssetImage("assets/dash1.png"),
-            backgroundImage: NetworkImage("https://picsum.photos/id/327/500/200"),
+            backgroundImage:
+            NetworkImage("https://picsum.photos/id/327/500/200"),
             //child: Text("I'm Dash"),
           ),
         ),
@@ -915,7 +919,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-*/
+
 //-------------------------------------------------------------//
 
 
