@@ -60,7 +60,6 @@ class MyApp extends StatelessWidget {
           ),
         ),
 
-
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           counter++;
@@ -234,7 +233,6 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
 
-
       floatingActionButton: FloatingActionButton(
 
         onPressed: (){
@@ -355,7 +353,6 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         backgroundColor: Colors.white,
 
-
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -412,6 +409,7 @@ class _MyAppState extends State<MyApp> {
               crossAxisAlignment: CrossAxisAlignment.start,
 
               children: quotes.map((quote) => Text(quote)).toList(),
+
           ),
         ),
       ),
@@ -535,27 +533,23 @@ class MyApp extends StatelessWidget {
             centerTitle: true,
         ),
 
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:  const [
-              Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Card(
-                  child: SizedBox(
-                    child: Center(
-                        child: Padding(
-                        padding: EdgeInsets.all(20.0),
-                          child: Text( "The more you teach, "
-                          "the better you learn. -Prof. Feynman",
-                          style: TextStyle(fontSize: 25),
-                      ),
-                    )),
-                  ),
-                ),
-              ),
+        body: const Center(
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
 
-            ],
+            child: Card(
+              child: SizedBox(
+                height:150,
+                child: Center(
+                    child: Padding(
+                    padding: EdgeInsets.all(20.0),
+                      child: Text( "The more you teach, "
+                      "the better you learn. -Prof. Feynman",
+                      style: TextStyle(fontSize: 25),
+                  ),
+                )),
+              ),
+            ),
           ),
         ),
       ),
@@ -615,31 +609,27 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.lightBlue[800]
         ),
 
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children:  [
-                for (Quote quote in quotes)
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      child: SizedBox(
-                        child: Center(
-                            child: Padding(
-                            padding: const EdgeInsets.all(20.0),
-                              child:  Text("${quote.quote} \n-${quote.author}\n",
-                                style: const TextStyle(fontSize: 25),
-                              ),
-                          )
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:  [
+              for (Quote quote in quotes)
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    child: SizedBox(
+                      child: Center(
+                          child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                            child:  Text("${quote.quote} \n"
+                                "-${quote.author}\n",
+                              style: const TextStyle(fontSize: 25),
+                            ),
                         )
-                      ),
-                      ),
+                      )
                     ),
-                 ],
-              ),
-
-
-          ),
+                    ),
+                  ),
+               ],),
         ),
       );
 
@@ -659,11 +649,7 @@ class MyApp extends StatelessWidget {
 //-------------------------------------------------------------//
 //A card can be the parent to almost any type of widget
 /*
-List <String> imageURLs = [
-  'assets/dash.png',
-  'assets/dash1.png',
-  'assets/dash2.png',
-] ;
+List <String> imageURLs = ['assets/dash.png', 'assets/dash1.png', 'assets/dash2.png',];
 
 
 void main() => runApp(const MyApp());
@@ -721,7 +707,7 @@ class MyApp extends StatelessWidget {
 
 
 //-------------------------------------------------------------//
-//Card Widget decorations
+//Card Widget, different borders
 /*
 void main() => runApp(const MyApp());
 
@@ -733,12 +719,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-       // backgroundColor: Colors.white,
+       backgroundColor: Colors.lightBlue[900],
         appBar: AppBar(
           leading: const BackButton(),
           title: const Text("Cards"),
           centerTitle: true,
-          backgroundColor: Colors.blue
+          backgroundColor: Colors.blue[700]
         ),
 
         body: Center(
@@ -746,49 +732,35 @@ class MyApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children:  [
 
-
-          //simple card, no borders
-          const Card(
-          child: SizedBox(
-          width: 300,
-            height: 100,
-            child: Center(child: Text('Elevated Card',
-              style: TextStyle(fontSize: 35),)),
-          ),
-          ),
-
-
-          //rounded rectangle borders
-          Card(
-            color: Colors.white54,
-            elevation: 2,
-            shadowColor: Colors.blue,
-
-            shape: RoundedRectangleBorder(
-              side: BorderSide(
-                color: Theme.of(context).colorScheme.outline,
+              Card(
+                color: Colors.white,
+                child:  Image.asset('assets/dash.png',
+                  width: 300,),
               ),
 
-              borderRadius: const BorderRadius.all(Radius.circular(12)),
-            ),
-            child: const Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text("Filled card, rounded edges",
-                style: TextStyle(fontSize: 25),),
-            ),
-          ),
+              const SizedBox(height: 30),
 
+              Card(
+                color: Colors.white,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(
+                      Radius.circular(30)),
+                ),
+                child:  Image.asset('assets/dash.png', width: 300,),
+              ),
 
-          const Card(
-            color: Colors.lightBlue,
-            elevation: 0,
-            child: SizedBox(
-              width: 300,
-              height: 100,
-              child: Center(child: Text('Filled Card',
-                style: TextStyle(fontSize: 35, color: Colors.white),),),
-            ),
-          ),
+              const SizedBox(height: 30),
+
+              Card(
+                color: Colors.white,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                      topRight: Radius.circular(70)
+                  ),
+                ),
+                child:  Image.asset('assets/dash.png', width: 300,),
+              ),
+
             ],
           ),
         ),
@@ -824,9 +796,10 @@ class MyApp extends StatelessWidget {
 
 
 
+
 //-------------------------------------------------------------//
 //circular avatar:
-/*
+
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -856,11 +829,12 @@ class MyApp extends StatelessWidget {
               TextStyle(fontSize: 40),),
             ),
           ),
+
       ),
     );
   }
 }
-*/
+
 //-------------------------------------------------------------//
 
 
