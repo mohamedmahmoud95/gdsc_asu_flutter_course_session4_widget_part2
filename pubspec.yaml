@@ -96,9 +96,12 @@ flutter:
 
 
   assets:
+    - assets/dash.png
     - assets/dash1.png
     - assets/dash2.png
-    - assets/flappy_dash.gif
     - assets/dash3.png
+    - assets/dash4.png
+    - assets/dash5.png
     - assets/dashatars.png
-    - assets/dash.png
+    - assets/flappy_dash.gif
+    - assets/verticalDivider.png

@@ -889,7 +889,7 @@ class MyApp extends StatelessWidget {
 
 //-------------------------------------------------------------//
 //circular avatar with foreground and background image:
-
+/*
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -912,56 +912,19 @@ class MyApp extends StatelessWidget {
             foregroundImage: AssetImage("assets/dash1.png"),
             backgroundImage:
             NetworkImage("https://picsum.photos/id/327/500/200"),
-            //child: Text("I'm Dash"),
           ),
         ),
       ),
     );
   }
 }
-
-//-------------------------------------------------------------//
-
-
-
-
-
-
-
-//-------------------------------------------------------------//
-//circular avatar with background image/color:
-/*
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          leading: const BackButton(),
-          title: const Text("Circular avatar"),
-          centerTitle: true,
-        ),
-
-        body:  const CircleAvatar(
-          maxRadius: 100,
-          foregroundImage: AssetImage("assets/dash1.png"),
-          backgroundColor: Colors.lightBlue,
-          foregroundColor: Colors.red, //color of the forground child
-          backgroundImage: NetworkImage("https://picsum.photos/id/231/500/200"),
-          child: Text("I'm Dash"),
-        ),
-      ),
-    );
-  }
-}
 */
-
 //-------------------------------------------------------------//
+
+
+
+
+
 
 
 
@@ -988,11 +951,11 @@ class MyApp extends StatelessWidget {
         body:  const Center(
           child: CircleAvatar(
             backgroundColor: Colors.blue,
-            radius: 155,
+            radius: 160,
             child: CircleAvatar(
               maxRadius: 150,
               foregroundImage: AssetImage("assets/dash1.png"),
-               backgroundColor: Colors.white,
+              backgroundColor: Colors.white,
             ),
           ),
         ),
@@ -1027,8 +990,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: const BackButton(),
-          title: const Text("Dash's profile"),
+          backgroundColor: Colors.white10,
+          elevation: 0,
+          leading: const BackButton(color: Colors.black),
+          title: const Text("Dash's profile", style: TextStyle(color: Colors.black),),
           centerTitle: true,
         ),
 
@@ -1037,85 +1002,171 @@ class MyApp extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children:  [
-                const Center(
+                 Center(
                   child: CircleAvatar(
-                    radius: 105,
-                    backgroundColor: Colors.lightBlue,
-                    child: CircleAvatar(
-                      maxRadius: 100,
+                    radius: 74,
+                    backgroundColor: Colors.blue[900],
+                    child: const CircleAvatar(
+                      maxRadius: 70,
                       foregroundImage: AssetImage("assets/dash1.png"),
                       backgroundColor: Colors.white,
                       //child: Text("I'm Dash"),
                     ),
                   ),
                 ),
-                const SizedBox(height: 50,),
+                const SizedBox(height: 40,),
 
-                Text("Hey, I'm Dash", style: TextStyle(fontSize: 30, color: Colors.blue.shade900),),
+                 Text("Hey, I'm Dash", style: TextStyle(fontSize: 35, color: Colors.blue[900]),),
+                const SizedBox(height: 10,),
+
+                 Text("TheDash@Flutter.dev", style: TextStyle(fontSize: 18, color:  Colors.blue[900]),),
                 const SizedBox(height: 20,),
-
-                Text("Birthdate: 12/5/2017", style: TextStyle(fontSize: 20, color: Colors.blue.shade900),),
                 const SizedBox(height: 20,),
-
-                ElevatedButton(onPressed: (){}, child: Text("+ add friend"), ),
-
-
-                const SizedBox(height: 100,),
-
-                Align(
-                  alignment: Alignment.centerLeft,
-                    child: Text("      You may also know: ", style: TextStyle(fontSize: 25, color: Colors.blue.shade900))
-                ),
 
 
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children:  [
-
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const CircleAvatar(
-                          maxRadius: 50,
-                          foregroundImage: AssetImage("assets/dash.png"),
-                          backgroundColor: Colors.transparent,
-                        ),
-                        Text("Dash-1", style: TextStyle(fontSize: 20, color: Colors.blue.shade900),),
+                        Text("335", style: TextStyle(fontSize: 30, color: Colors.blue.shade900),),
+                        Text("Follower", style: TextStyle(fontSize: 15, color: Colors.blue.shade900),),
                       ],
                     ),
 
+                    Image.asset("assets/verticalDivider.png", height: 50, ),
+
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const CircleAvatar(
-                          maxRadius: 50,
-                          foregroundImage: AssetImage("assets/dash2.png"),
-                          backgroundColor: Colors.transparent,
-                        ),
-                        Text("Dash-2", style: TextStyle(fontSize: 20, color: Colors.blue.shade900),),
+                        Text("105", style: TextStyle(fontSize: 30, color: Colors.blue.shade900),),
+                        Text("Following", style: TextStyle(fontSize: 15, color: Colors.blue.shade900),),
                       ],
                     ),
 
-                    Column(
-                      children: [
-                        const SizedBox(height: 5,),
-                        const CircleAvatar(
+                    Image.asset("assets/verticalDivider.png", height: 50, ),
 
-                          maxRadius: 50,
-                          foregroundImage: AssetImage("assets/dash3.png"),
-                          backgroundColor: Colors.transparent,
-                        ),
-                        Text("Dash-3", style: TextStyle(fontSize: 20, color: Colors.blue.shade900),),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("750", style: TextStyle(fontSize: 30, color: Colors.blue.shade900),),
+                        Text("Friends", style: TextStyle(fontSize: 15, color: Colors.blue.shade900),),
                       ],
                     ),
-
-
                   ],
                 ),
 
+                const SizedBox(height: 40,),
+
+                ElevatedButton(
+
+                    onPressed: (){},
+                    style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(Colors.blue.shade700),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                            )
+                        )
+                    ),
+                    child: const Text('+ Add friend')
+                ),
+
+
                 const SizedBox(height: 50,),
 
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
 
-                         ],
+                    Padding(padding: const EdgeInsets.all(8),
+                        child: Text("You may also know: ",
+                            style: TextStyle(fontSize: 20, color: Colors.blue.shade900))),
+
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children:  [
+
+                      Column(
+                        children: [
+                          const CircleAvatar(
+                            maxRadius: 50,
+                            foregroundImage: AssetImage("assets/dash.png"),
+                            backgroundColor: Colors.transparent,
+                          ),
+                          Text("Dash-1", style: TextStyle(fontSize: 20, color: Colors.blue.shade900),),
+                        ],
+                      ),
+
+                      const SizedBox(width: 20,),
+
+                      Column(
+                        children: [
+                          const CircleAvatar(
+                            maxRadius: 50,
+                            foregroundImage: AssetImage("assets/dash2.png"),
+                            backgroundColor: Colors.transparent,
+                          ),
+                          Text("Dash-2", style: TextStyle(fontSize: 20, color: Colors.blue.shade900),),
+                        ],
+                      ),
+
+                      const SizedBox(width: 20,),
+
+                      Column(
+                        children: [
+                          const SizedBox(height: 5,),
+                          const CircleAvatar(
+
+                            maxRadius: 50,
+                            foregroundImage: AssetImage("assets/dash3.png"),
+                            backgroundColor: Colors.transparent,
+                          ),
+                          Text("Dash-3", style: TextStyle(fontSize: 20, color: Colors.blue.shade900),),
+                        ],
+                      ),
+
+                      const SizedBox(width: 20,),
+
+                      Column(
+                        children: [
+                          const SizedBox(height: 5,),
+                          const CircleAvatar(
+
+                            maxRadius: 50,
+                            foregroundImage: AssetImage("assets/dash4.png"),
+                            backgroundColor: Colors.transparent,
+                          ),
+                          Text("Dash-4", style: TextStyle(fontSize: 20, color: Colors.blue.shade900),),
+                        ],
+                      ),
+
+                      const SizedBox(width: 20,),
+
+                      Column(
+                        children: [
+                          const SizedBox(height: 5,),
+                          const CircleAvatar(
+
+                            maxRadius: 50,
+                            foregroundImage: AssetImage("assets/dash5.gif"),
+                            backgroundColor: Colors.transparent,
+                          ),
+                          Text("Dash-5", style: TextStyle(fontSize: 20, color: Colors.blue.shade900),),
+                        ],
+                      ),
+
+                    ],
+                  ),
+                ),
+                  ],
+                ),
+                const SizedBox(height: 50,),
+                ],
             ),
           ),
         ),
@@ -1173,13 +1224,12 @@ class MyApp extends StatelessWidget {
               //creating borders by wrapping another container with
               // another container of different color
               //*must add padding or margin
+
               Container(
-            //    padding: const EdgeInsets.all(2),
                 color: Colors.blue,
                 
                 child: Container(
-                  margin: const EdgeInsets.all(2),
-                  color: Colors.white,
+                  margin: const EdgeInsets.all(2), color: Colors.white,
                   padding: const EdgeInsets.all(16.0),
 
                   child: const Text(
@@ -1210,29 +1260,35 @@ class MyApp extends StatelessWidget {
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   border: Border.all(width: 2,color: Colors.blue),
-                  borderRadius: const BorderRadius.all(Radius.circular(20)),
+                  borderRadius: const BorderRadius.all(
+                      Radius.circular(20)),
                 ),
                   child: const Text("Container 2", style: TextStyle(fontSize: 35),),
               ),
 
               const SizedBox(height: 50,),
 
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  border: Border.all(width: 2,color: Colors.blue),
+                  borderRadius: const BorderRadius.only(
+                      topRight: Radius.circular(30)),
+                ),
+                child: const Text("Container 3", style: TextStyle(fontSize: 35),),
+              ),
 
+              const SizedBox(height: 50,),
+              
               Container(
                 padding: const EdgeInsets.all(16.0),
                 decoration: const BoxDecoration(
                   border: Border(
-                    left: BorderSide(
-                      color: Colors.blue,
-                      width: 2.0,
-                    ),
-                  ),
+                    left: BorderSide(color: Colors.blue, width: 2.0,
+                    ),),
                 ),
 
-                child: const Text(
-                  "Container 3",
-                  style: TextStyle(fontSize: 34.0),
-                ),
+                child: const Text("Container 4", style: TextStyle(fontSize: 34.0),),
               ),
 
 
@@ -1245,8 +1301,6 @@ class MyApp extends StatelessWidget {
   }
 }
 */
-
- */
 //-------------------------------------------------------------//
 
 
@@ -1279,6 +1333,8 @@ Inkwell will respond when the user clicks the button.
 There are so many gestures like double-tap, long press, tap down, etc.
  */
 
+ */
+
 /*
 void main() => runApp( MyApp());
 
@@ -1293,35 +1349,26 @@ class _MyAppState extends State<MyApp> {
 String inkwellText = "idle";
 Color inkwellTextColor = Colors.black;
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        // backgroundColor: Colors.white,
-        appBar: AppBar(
-            leading: const BackButton(),
-            title: const Text("Inkwell"),
-            centerTitle: true,
-            backgroundColor: Colors.blue
-        ),
 
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children:  [
 
-
               InkWell(
                 child: Image.asset("assets/dash.png"),
+
                 onTap: (){
                   setState(()
                        {
                   inkwellText = "tapped";
                   inkwellTextColor = Colors.teal;
-                }
-                );
+                       } );
                 },
 
                 onDoubleTap: () {
@@ -1335,7 +1382,6 @@ Color inkwellTextColor = Colors.black;
                   setState(() {
                     inkwellText = "Long pressed";
                     inkwellTextColor = Colors.redAccent;
-
                   });
                 },
               ),
@@ -1358,6 +1404,196 @@ Color inkwellTextColor = Colors.black;
 }
 */
 //-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------////-------------------------------------------------------------//
+//--------------------- GestureDetector widget ------------//
+//-------------------------------------------------------------////-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------//
+// GestureDetector widget
+/*
+Like InkWell, it can turn any widget into a clickable widget.
+But it has so many more features
+
+It’s a widget that detects gestures.
+
+If this widget has a child, it refers to that child for its sizing behavior. If it does not have a child, it grows to fit the parent instead.
+ */
+/*
+
+void main() => runApp( MyApp());
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+String inkwellText = "idle";
+Color inkwellTextColor = Colors.black;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children:  [
+
+              GestureDetector(
+                child: Image.asset("assets/dash.png"),
+
+                onTap: (){
+                  setState(()
+                       {
+                  inkwellText = "tapped";
+                  inkwellTextColor = Colors.teal;
+                       } );
+                },
+
+                onDoubleTap: () {
+                  setState(() {
+                    inkwellText = "double tapped";
+                    inkwellTextColor = Colors.purple;
+                  });
+                },
+
+                onLongPress: () {
+                  setState(() {
+                    inkwellText = "Long pressed";
+                    inkwellTextColor = Colors.redAccent;
+                  });
+                },
+              ),
+
+              const SizedBox(height: 30,),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("Inkwell state:", style: TextStyle(fontSize: 30),),
+                  Text(inkwellText, style:  TextStyle(fontSize: 30, color: inkwellTextColor),),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+*/
+
+/*
+And, there are many many other features, like:
+PROPERTIES
+behavior
+child
+dragStartBehavior
+excludeFromSemantics
+hashCode
+key
+onDoubleTap
+onDoubleTapCancel
+onDoubleTapDown
+onForcePressEnd
+onForcePressPeak
+onForcePressStart
+onForcePressUpdate
+onHorizontalDragCancel
+onHorizontalDragDown
+onHorizontalDragEnd
+onHorizontalDragStart
+onHorizontalDragUpdate
+onLongPress
+onLongPressCancel
+onLongPressDown
+onLongPressEnd
+onLongPressMoveUpdate
+onLongPressStart
+onLongPressUp
+onPanCancel
+onPanDown
+onPanEnd
+onPanStart
+onPanUpdate
+onScaleEnd
+onScaleStart
+onScaleUpdate
+onSecondaryLongPress
+onSecondaryLongPressCancel
+onSecondaryLongPressDown
+onSecondaryLongPressEnd
+onSecondaryLongPressMoveUpdate
+onSecondaryLongPressStart
+onSecondaryLongPressUp
+onSecondaryTap
+onSecondaryTapCancel
+onSecondaryTapDown
+onSecondaryTapUp
+onTap
+onTapCancel
+onTapDown
+onTapUp
+onTertiaryLongPress
+onTertiaryLongPressCancel
+onTertiaryLongPressDown
+onTertiaryLongPressEnd
+onTertiaryLongPressMoveUpdate
+onTertiaryLongPressStart
+onTertiaryLongPressUp
+onTertiaryTapCancel
+onTertiaryTapDown
+onTertiaryTapUp
+onVerticalDragCancel
+onVerticalDragDown
+onVerticalDragEnd
+onVerticalDragStart
+onVerticalDragUpdate
+runtimeType
+supportedDevices
+*/
+//-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------////-------------------------------------------------------------//
+//--------------------- mini project, shopping app ------------//
+//-------------------------------------------------------------////-------------------------------------------------------------//
+
+
 
 
 
@@ -1617,6 +1853,7 @@ class _MyAppState extends State<MyApp> {
   }
 }
 */
+
 //-------------------------------------------------------------//
 
 
