@@ -1588,6 +1588,112 @@ supportedDevices
 
 
 
+//-------------------------------------------------------------////-------------------------------------------------------------//
+//--------------------- RatingBar and RatingBarIndicator widget ------------//
+//-------------------------------------------------------------////-------------------------------------------------------------//
+
+
+
+
+
+
+
+
+
+//-------------------------------------------------------------//
+// RatingBar widget
+/*
+void main() => runApp( MyApp());
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String inkwellText = "idle";
+  Color inkwellTextColor = Colors.black;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+
+        body: Center( child:
+          RatingBar.builder(
+            initialRating: 3,
+            minRating: 1,
+            direction: Axis.horizontal,
+            allowHalfRating: true,
+            itemCount: 5,
+            itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+            itemBuilder: (context, _) =>
+                const Icon( Icons.star, color: Colors.amber,),
+            onRatingUpdate: (rating) {
+              if (kDebugMode) { print(rating); }
+            },
+          ),
+        ),
+
+      ),
+    );
+  }
+}
+*/
+//-------------------------------------------------------------//
+
+
+
+
+
+//-------------------------------------------------------------//
+// RatingBarIndicator widget
+/*
+void main() => runApp( MyApp());
+
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String inkwellText = "idle";
+  Color inkwellTextColor = Colors.black;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+
+        body: Center( child:
+        RatingBarIndicator(
+          rating: 2.75,
+          itemBuilder: (context, index) => const Icon(
+            Icons.star, color: Colors.amber,),
+          itemCount: 5,
+          itemSize: 50.0,
+          direction: Axis.horizontal,
+        ),
+        ),
+
+      ),
+    );
+  }
+}
+*/
+//-------------------------------------------------------------//
+
+
+
+
+
+
 
 //-------------------------------------------------------------////-------------------------------------------------------------//
 //--------------------- mini project, shopping app ------------//
