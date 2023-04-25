@@ -1439,8 +1439,8 @@ It’s a widget that detects gestures.
 
 If this widget has a child, it refers to that child for its sizing behavior. If it does not have a child, it grows to fit the parent instead.
  */
-/*
 
+/*
 void main() => runApp( MyApp());
 
 class MyApp extends StatefulWidget {
@@ -1451,42 +1451,40 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-String inkwellText = "idle";
-Color inkwellTextColor = Colors.black;
+String text = "idle";
+Color textColor = Colors.black;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children:  [
-
               GestureDetector(
                 child: Image.asset("assets/dash.png"),
 
                 onTap: (){
                   setState(()
                        {
-                  inkwellText = "tapped";
-                  inkwellTextColor = Colors.teal;
+                  text = "tapped";
+                  textColor = Colors.teal;
                        } );
                 },
 
                 onDoubleTap: () {
                   setState(() {
-                    inkwellText = "double tapped";
-                    inkwellTextColor = Colors.purple;
+                    text = "double tapped";
+                    textColor = Colors.purple;
                   });
                 },
 
                 onLongPress: () {
                   setState(() {
-                    inkwellText = "Long pressed";
-                    inkwellTextColor = Colors.redAccent;
+                    text = "Long pressed";
+                    textColor = Colors.redAccent;
                   });
                 },
               ),
@@ -1496,8 +1494,8 @@ Color inkwellTextColor = Colors.black;
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Inkwell state:", style: TextStyle(fontSize: 30),),
-                  Text(inkwellText, style:  TextStyle(fontSize: 30, color: inkwellTextColor),),
+                  const Text("state:", style: TextStyle(fontSize: 30),),
+                  Text(text, style:  TextStyle(fontSize: 30, color: textColor),),
                 ],
               ),
             ],
@@ -2044,9 +2042,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
   List <Product> products = [
     sampleProduct1,sampleProduct2,sampleProduct3,sampleProduct4,sampleProduct5,
   ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -2070,8 +2070,9 @@ class _MyAppState extends State<MyApp> {
               child: Wrap(
                 spacing: 10,
                 runSpacing: 10,
-            children: products.map((p) => ProductCard(product: p)).toList(),
-            ),
+                children: products.map((p) => ProductCard(product: p)).toList(),
+
+              ),
             ),
           ),
 
@@ -2086,3 +2087,4 @@ class _MyAppState extends State<MyApp> {
 */
 //-------------------------------------------------------------//
 
+//products.map((p) => ProductCard(product: p)).toList(),
