@@ -1,17 +1,13 @@
 # gdsc_flutter_course_session4
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 # gdsc_asu_flutter_course_session4_widget_part2
+
+Content:
+  Stateful widget Vs. Stateless widget
+  Iterating over a list of data
+  Circular Avatar
+  Cards
+  Containers with borders
+  Custom widgets
+  Creating a product widgets
+  Creating a scrollable list of product cards (Wrap)
